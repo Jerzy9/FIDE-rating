@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>FIDE Calc</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<div class="form-style-2">
+<div class="form-style-2-heading">Oblicz swój ranking ELO (FIDE)</div>
+<form action="/calculate" method="post">
+<label for="field1"><span>Twój ranking <span class="required">*</span></span><input type="text" class="input-field" name="your_rating" value="" /></label>
+
+    <label for="field2"><span>Ranking przeciwnika <span class="required">*</span></span><input type="text" class="input-field" name="opponents_rating" value="" /></label>
+
+    <label for="field4"><span>Wynik</span><select name="score" class="select-field">
+    <option value="1">Wygrana</option>
+    <option value="0.5">Remis</option>
+    <option value="0">Przegrana</option>
+    </select></label>
+
+    <label for="field4"><span>Wartość K</span><select name="K" class="select-field">
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+    </select></label>
+
+    <label><span> </span><input type="submit" value="Calculate" /></label>
+</form>
+    <br><br>
+    <h2>Your ELO: {{yours_rating}}  +  {{yours_diff}}  =  {{yours_new_rating}}</h2>
+    <h2>Opponent's ELO: {{opponents_rating}}  +  {{opponents_diff}}  =  {{opponents_new_rating}}</h2>
+</div>
+
+</body>
+</html>
