@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title %}{% endblock %} </title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <center>
+        <div class="form-style-2">
+            <div class="form-style-2-heading">Oblicz swój ranking ELO (FIDE)</div>
+            <div class="topnav" class="form-style-2-heading">
+                <a href="/">Oblicz ranking</a>
+                <a href="/initial">Nie mam jeszcze rankingu</a>
+            </div>
+            <br>
+                {% block content %}
+
+                {% endblock %}
+        </div>
+    </center>
+</body>
+</html>

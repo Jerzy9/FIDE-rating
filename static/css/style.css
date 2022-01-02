@@ -33,16 +33,15 @@ margin-top:3px;
     width:400px;
 }
 
-
 .form-style-2-heading{
 	font-weight: bold;
 	border-bottom: 2px solid #ddd;
-	margin-bottom: 20px;
+
 	font-size: 19px;
 	padding: 8px;
 }
 .form-style-2 label{
-	margin: 0px 0px 15px 0px;
+	margin: 0px 0px 0px 0px;
 }
 .form-style-2 label > span{
 	width: 100px;
@@ -97,11 +96,34 @@ margin-top:3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	width: 101px;
-	margin-top:10px;
 }
 .form-style-2 input[type=submit]:hover,
 .form-style-2 input[type=button]:hover{
 	background: #EA7B00;
-	color: #fff;
 }
+
+/* Add a black background color to the top navigation */
+.topnav {
+  overflow: hidden;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  font-size: 19px;
+  padding: 20px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: #f5d6b5;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ffab4f;
+}
+
 </style>

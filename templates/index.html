@@ -1,15 +1,9 @@
-<html>
+{% extends "main.html" %}
+{% block title %}Calculate rating {% endblock %}
+{% block content %}
 
-<head>
-    <title>FIDE Calc</title>
-    <link rel="stylesheet" href="static/css/style.css">
-</head>
-<body>
-<center>
-<div class="form-style-2">
-<div class="form-style-2-heading">Oblicz swój ranking ELO (FIDE)</div>
-    <h2>Your ELO: {{yours_new_rating}}</h2>
-    <h2>Opponent's ELO: {{opponents_new_rating}}</h2>
+    <h2>Twóje ELO: {{yours_new_rating}}</h2>
+    <h2>ELO przeciwnika: {{opponents_new_rating}}</h2>
     <br>
 
 <form action="/calculate" method="post">
@@ -30,8 +24,8 @@
     </div>
 
     <div class="column" style="width:400px;">
-        <input type="text" class="input-field" name="your_rating" value="" />
-        <input type="text" class="input-field" name="opponents_rating" value="" />
+        <input type="number" class="input-field" name="your_rating" value="" min="1000" max="3000"/>
+        <input type="number" class="input-field" name="opponents_rating" value="" min="1000" max="3000" />
        <select name="score" class="select-field">
             <option value="1">Wygrana</option>
             <option value="0.5">Remis</option>
@@ -45,14 +39,12 @@
         </select>
     </div>
     <div>
-        <input type="submit" value="Calculate" />
+        <input type="submit" value="Oblicz" />
     </div>
 </form>
     <br><br>
     <div class="text-area">
-        <p>Jeśli jesteś nowym graczem i nie masz jeszcze rankingu ELO,<br>
-            to twój ranking wynosi 1000.<br> <br> <br>
-
+        <p>
             Zmienna K, to współczynnik rozwoju,<br><br>
             <b>K = 40 </b>- dla gracza nowego na liście, dopóki nie ukończy wydarzeń z co najmniej 30 grami
             oraz dla wszystkich graczy do 18. roku życia, o ile ich ocena nie przekracza 2300.<br><br>
@@ -62,7 +54,5 @@
             i pozostaje na tym poziomie, nawet jeśli ocena spadnie poniżej 2400.<br>
         </p>
     </div>
-</div>
-</center>
-</body>
-</html>
+
+{% endblock %}

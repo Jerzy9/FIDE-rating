@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+{% block title %} Initial rating {% endblock %}
+{% block content %}
+    <h2>Twój ranking początkowy {{initial_ranking}}</h2>
+    <h3>Obliczenia: {{calculations}}</h3>
+    <br>
+
+<form action="/initial" method="post">
+    <div class="column">
+        <div class="lb">
+            <label class="lb" for="field1"><span>Średni ranking w turnieju<span class="required">*</span></span></label>
+        </div>
+        <div class="lb">
+            <label class="lb" for="field2"><span>Całkowity wynik: </span></label>
+        </div>
+         <div class="lb">
+            <label class="lb" for="field3"><span>Liczba gier: </span></label>
+         </div>
+        <label><span> </span></label>
+    </div>
+
+    <div class="column" style="width:400px;">
+        <input type="number" class="input-field" name="avg_rating" value="" min="1000" max="3000"/>
+        <input type="number" class="input-field" name="score" value="" min="0" max="99"/>
+        <input type="number" class="input-field" name="n" value="" min="5" max="99"/>
+    </div>
+    <div>
+        <input type="submit" value="Oblicz" />
+    </div>
+</form>
+    <br><br>
+    <div class="text-area">
+        <p>
+            <b>Średni ranking w turnieju</b> - to średni ranking wszystkich graczy w turnieju <br><br>
+            <b>Wynik</b> - to ogólna liczba zdobytyhc punktów podczas wszystkich gier, wygrana to <b>1 pkt</b>,
+            remis to <b>0.5 pkt </b>, a przegrana to <b>0 pkt</b><br><br>
+            <b>Liczba gier</b> - to liczba wszystkich zagranych gier podczas turnieju<br><br>
+
+            Minimalna liczba gier to 5, z turniejów, które odbyły się w przedziale czasowym 26 miesięcy.
+            Wyniki z więcej niż jednego turnieju są liczone tak samo jak z jednego, a średni ranking graczy
+            jest obliczany z średnich rankingów wszystkich turniejów<br><br>
+
+            Jeżeli gracz zdobył <b>50% punktów</b>, to ranking_początkowy = średni_ranking<br>
+            Jeżeli zdobył <b>więcej niż 50%</b>, to ranking_początkowy = średni_ranking + 20 (za każdy 0,5 pkt ponad 50%)<br>
+            Jeżeli zdobył <b>mniej niż 50%</b>, to ranking_początkowy = średni_ranking + róźnica rankingu
+
+
+
+        </p>
+    </div>
+
+{% endblock %}
