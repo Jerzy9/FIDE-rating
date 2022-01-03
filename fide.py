@@ -1,15 +1,16 @@
 import math
 
 
-def Probability(rating1, rating2):
-    return 1.0 / (1 + math.pow(10, (rating1 - rating2) / 400))
+def probability(rating1, rating2):
+    r = 1.0 / (1 + math.pow(10, (rating1 - rating2) / 400))
+    return r
 
 
 # K jest stała - może byc obliczona ze wzoru
 # 800 / (liczba gier na których opiera się obecny ranking gracza + liczba gier zagranych w obecnym turnieju)
 def rating(yours_rating, opponents_rating, K, score):
-    your_p = Probability(yours_rating, opponents_rating)
-    opponents_p = Probability(opponents_rating, yours_rating)
+    your_p = probability(yours_rating, opponents_rating)
+    opponents_p = probability(opponents_rating, yours_rating)
 
     # wygrana
     if score == 1:
@@ -49,7 +50,7 @@ def initial_rating(avg_rating, score, n):
             0.09: -383, 0.08: -401, 0.07: -422, 0.06: -444, 0.05: -470, 0.04: -501, 0.03: -538, 0.02: -589, 0.01: -677, 0.00: -800
           }
 
-    # Jeżeli gracz zdobył 50 % punktów, to ranking_początkowy = średni_ranking < br >
+    # Jeżeli gracz zdobył 50 % punktów, to ranking_początkowy = średni_ranking
     if score == n/2:
         init_rating = avg_rating
         calculations = f"{init_rating} = {avg_rating}"
